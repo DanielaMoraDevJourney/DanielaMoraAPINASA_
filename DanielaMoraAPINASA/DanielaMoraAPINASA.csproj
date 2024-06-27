@@ -64,11 +64,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Services\" />
-	  <Folder Include="ViewModels\" />
-	</ItemGroup>
-
-	<ItemGroup>
 	  <MauiXaml Update="Views\ApodPageDM.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
