@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace DanielaMoraAPINASA.Models
 {
-    internal class DMApod
+    public class DMApod
     {
+        public string date_DM { get; set; }
+        public string explanation_DM { get; set; }
+        public string media_type_DM { get; set; }
+        public string hdurl_DM { get; set; }
+        public string service_version_DM { get; set; }
+        public string title_DM { get; set; }
+        public string url_DM { get; set; }
+
     }
 }

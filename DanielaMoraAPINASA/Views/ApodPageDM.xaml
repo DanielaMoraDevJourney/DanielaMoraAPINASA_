@@ -3,10 +3,45 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DanielaMoraAPINASA.Views.ApodPageDM"
              Title="ApodPageDM">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <!-- Place new controls here -->
+            <Frame BackgroundColor="DarkSlateGray">
+                <Label Text="Imagen del día"
+                         HorizontalOptions="Center"
+                         VerticalOptions="Start"
+                         TextColor="White"
+                         FontSize="Large"/>
+            </Frame>
+            <Label Text="Seleccione la fecha:" FontSize="Small" HorizontalOptions="Center"
+                    TextColor="White"/>
+            <DatePicker x:Name="ImageDate_DM"
+                         Date="{Binding ChosenDate_DM}"
+                         HorizontalOptions="CenterAndExpand"
+                         TextColor="white"/>
+            <Label x:Name="Title_DM"
+                     Text="{Binding Title_DM}"
+                     FontSize="Medium"
+                     FontAttributes="Bold"
+                     HorizontalTextAlignment="Center"
+                     HorizontalOptions="CenterAndExpand"
+                     TextColor="White"/>
+            <ScrollView VerticalOptions="StartAndExpand">
+                <StackLayout Margin="40,15,40,50">
+                    <Image x:Name="Picture_DM"
+                             HorizontalOptions="FillAndExpand"
+                             VerticalOptions="FillAndExpand"
+                             Source="{Binding ImageURI_DM}"/>
+                    <Label x:Name="Didactic_DM"
+                             Text="{Binding Didactic_DM}"
+                             HorizontalOptions="FillAndExpand"
+                             TextColor="White"
+                             Padding="5, 20, 5, 20"
+                             FontFamily="verdana"/>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+
 </ContentPage>
