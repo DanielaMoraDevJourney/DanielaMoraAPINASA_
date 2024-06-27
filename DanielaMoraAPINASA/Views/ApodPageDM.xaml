@@ -16,12 +16,12 @@
             </Frame>
             <Label Text="Seleccione la fecha:" FontSize="Small" HorizontalOptions="Center"
                     TextColor="White"/>
-            <DatePicker x:Name="ImageDate_DM"
-                         Date="{Binding ChosenDate_DM}"
+            <DatePicker x:Name="ImageDate"
+                         Date="{Binding ChosenDate}"
                          HorizontalOptions="CenterAndExpand"
                          TextColor="white"/>
-            <Label x:Name="Title_DM"
-                     Text="{Binding Title_DM}"
+            <Label x:Name="Title"
+                     Text="{Binding Title}"
                      FontSize="Medium"
                      FontAttributes="Bold"
                      HorizontalTextAlignment="Center"
@@ -29,12 +29,12 @@
                      TextColor="White"/>
             <ScrollView VerticalOptions="StartAndExpand">
                 <StackLayout Margin="40,15,40,50">
-                    <Image x:Name="Picture_DM"
+                    <Image x:Name="Picture"
                              HorizontalOptions="FillAndExpand"
                              VerticalOptions="FillAndExpand"
-                             Source="{Binding ImageURI_DM}"/>
-                    <Label x:Name="Didactic_DM"
-                             Text="{Binding Didactic_DM}"
+                             Source="{Binding ImageURI}"/>
+                    <Label x:Name="Didactic"
+                             Text="{Binding Didactic}"
                              HorizontalOptions="FillAndExpand"
                              TextColor="White"
                              Padding="5, 20, 5, 20"
@@ -43,5 +43,4 @@
             </ScrollView>
         </StackLayout>
     </ContentPage.Content>
-
 </ContentPage>

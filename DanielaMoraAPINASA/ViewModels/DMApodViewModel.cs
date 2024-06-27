@@ -10,7 +10,6 @@ using System.Runtime.CompilerServices;
 
 namespace DanielaMoraAPINASA.ViewModels
 {
-
     public class DMApodViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
@@ -23,94 +22,88 @@ namespace DanielaMoraAPINASA.ViewModels
         }
         public DMApodViewModel()
         {
-            ChosenDate_DM = DateTime.Now;
+            ChosenDate = DateTime.Now;
         }
-        private DateTime dateTime_DM;
-        public DateTime ChosenDate_DM
+        private DateTime dateTime;
+        public DateTime ChosenDate
         {
-            get { return dateTime_DM; }
+            get { return dateTime; }
             set
             {
-                if (value != dateTime_DM)
+                if (value != dateTime)
                 {
-                    dateTime_DM = value;
+                    dateTime = value;
                     NotifyPropertyChanged();
                 }
-                _ = GetPictureOfTheDay(dateTime_DM);
+                _ = GetPictureOfTheDay(dateTime);
             }
         }
-        //La diferencia entre title y Title es que title es un campo privado usado para guardar
-        //el valor de title mientras que Title es una propiedad pública que proporciona acceso
-        //al campo title y lanza el evento PropertyChanged cuando su valor cambia, lo que es usado
-        //para el data binding y las notificaciones de cambio.
-        //El getter retorna el valor del campo title mientras que el setter permite asignar un
-        //nuevo valor al campo title.
-        private string title_DM;
-        public string Title_DM
-        {
-            get { return title_DM; }
-            set
-            {
-                if (value != title_DM)
-                {
-                    title_DM = value;
-                    NotifyPropertyChanged();
-                }
-            }
-        }
-        private Uri imageUri_DM;
-        public Uri ImageURI_DM
-        {
-            get { return imageUri_DM; }
-            set
-            {
-                if (imageUri_DM != value)
-                {
-                    imageUri_DM = value;
-                    NotifyPropertyChanged();
-                }
-            }
 
-        }
-        private string didactic_DM;
-        public string Didactic_DM
+        private string title;
+        public string Title
         {
-            get { return didactic_DM; }
+            get { return title; }
             set
             {
-                if (didactic_DM != value)
+                if (value != title)
                 {
-                    didactic_DM = value;
+                    title = value;
                     NotifyPropertyChanged();
                 }
             }
         }
-        private DMApodService service_DM;
-        public DMApodService Service_DM
+        private Uri imageUri;
+        public Uri ImageURI
+        {
+            get { return imageUri; }
+            set
+            {
+                if (imageUri != value)
+                {
+                    imageUri = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+        private string didactic;
+        public string Didactic
+        {
+            get { return didactic; }
+            set
+            {
+                if (didactic != value)
+                {
+                    didactic = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+        private DMApodService service;
+        public DMApodService Service
         {
             get
             {
-                if (service_DM == null)
+                if (service == null)
                 {
-                    service_DM = new DMApodService();
+                    service = new DMApodService();
                 }
-                return service_DM;
+                return service;
             }
         }
         private async Task GetPictureOfTheDay(DateTime day)
         {
-            DMApod dto = await Service_DM.GetImage_DM(day);
+            DMApod dto = await Service.GetImage(day);
             if (dto == null)
             {
-                ImageURI_DM = new Uri("https://image.freepik.com/vector-gratis/error-404-no-encontradoefecto-falla_8024-5.jpg");
-                Didactic_DM = "";
-                Title_DM = "Intenta con otra fecha";
+                ImageURI = new Uri("https://image.freepik.com/vector-gratis/error-404-no-encontradoefecto-falla_8024-5.jpg");
+                Didactic = "";
+                Title = "Intenta con otra fecha";
             }
             else
             {
-                ImageURI_DM = new Uri(dto.hdurl_DM);
-                Didactic_DM = dto.explanation_DM;
-                Title_DM = dto.title_DM;
+                ImageURI = new Uri(dto.hdurl);
+                Didactic = dto.explanation;
+                Title = dto.title;
             }
         }
     }
